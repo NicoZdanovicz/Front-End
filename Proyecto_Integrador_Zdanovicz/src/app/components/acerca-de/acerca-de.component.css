@@ -11,7 +11,7 @@ div{
     margin-top: 20%;
 }
 /*Estilo de la foto de perfil*/
-@media (min-width: 576px){
+@media (min-width: 1300px){
     #perfil{
         position: absolute;
         width: 15%;
@@ -21,6 +21,15 @@ div{
         top: 600px;
     }
 }
+@media (min-width: 576px){
+    #perfil{
+        position: absolute;
+        width: 13%;
+        border-radius: 100%;
+        box-shadow: 3px 3px 3px grey;
+        left: 3%;
+    }
+}
 @media (max-width: 575px){
     #perfil{
         position: absolute;
@@ -28,6 +37,16 @@ div{
         border-radius: 100%;
         box-shadow: 3px 3px 3px grey;
         left: 35%;
-        top: 630px;
+        top: 950px;
+    }
+}
+@media (max-width: 400px){
+    #perfil{
+        position: absolute;
+        width: 27%;
+        border-radius: 100%;
+        box-shadow: 3px 3px 3px grey;
+        left: 35%;
+        top: 750px;
     }
 }
