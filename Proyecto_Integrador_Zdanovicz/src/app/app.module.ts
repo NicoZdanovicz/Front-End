@@ -25,7 +25,7 @@ import { FooterComponent } from './components/footer/footer.component';
     EducacionComponent,
     HysComponent,
     ProyectosComponent,
-    FooterComponent
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
