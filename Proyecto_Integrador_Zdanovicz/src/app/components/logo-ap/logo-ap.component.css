@@ -14,9 +14,10 @@ img{
 }
 .btn{
     border-width: medium;
+    margin-left: 0.5rem;
 }
 /*Para pantallas de celulares*/
-@media (max-width: 575px){
+@media (max-width: 576px){
     .contenedor{
         flex-direction: column;
     }
