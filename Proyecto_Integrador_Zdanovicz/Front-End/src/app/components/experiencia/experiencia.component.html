@@ -1,21 +1,29 @@
 <div class="row">
-    <h1 class="text-center">Experiencia Laboral</h1>
-    <div class="text-center col-xs-12 col-sm-6 col-md-4 col-lg-4">
-        <h3>Trabajo-1</h3>
-        <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores facilis quisquam omnis quis asperiores eligendi doloremque! Magnam voluptate deleniti mollitia. Quam aliquam beatae, ratione ea quidem blanditiis quod incidunt exercitationem.
-        </p>
+    <h1>Experiencia Laboral</h1>
+    <div class="col-lg-2">
+        <button type="button" class="btn btn-dark" routerLink="/nuevaexp" *ngIf="isLogged">
+            Nueva Experiencia
+        </button>
     </div>
-    <div class="text-center col-xs-12 col-sm-6 col-md-4 col-lg-4">
-        <h3>Trabajo-2</h3>
-        <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores facilis quisquam omnis quis asperiores eligendi doloremque! Magnam voluptate deleniti mollitia. Quam aliquam beatae, ratione ea quidem blanditiis quod incidunt exercitationem.
-        </p>
+
+
+    <div class="col lg 1"></div>
+    <div class="col-lg-11">
+        <table class="table">
+            <tbody>
+                <tr *ngFor="let Experiencia of expe">
+                    <td><h5>{{Experiencia.nombreE}}</h5></td>
+                    <td>{{Experiencia.descripcionE}}</td>
+                    <td *ngIf="isLogged">
+                        <button class="btn btn-primary" routerLink="/editexp/{{Experiencia.id}}"><i class="bi bi-pencil-fill"></i> EDITAR</button>
+                    </td>
+                    <td *ngIf="isLogged">
+                        <button class="btn btn-danger" (click)="delete(Experiencia.id)"><i class="bi bi-trash3-fill"></i> BORRAR</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    
     </div>
-    <div class="text-center col-xs-12 col-sm-6 col-md-4 col-lg-4">
-        <h3>Trabajo-3</h3>
-        <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores facilis quisquam omnis quis asperiores eligendi doloremque! Magnam voluptate deleniti mollitia. Quam aliquam beatae, ratione ea quidem blanditiis quod incidunt exercitationem.
-        </p>
-    </div>
+    
 </div>
