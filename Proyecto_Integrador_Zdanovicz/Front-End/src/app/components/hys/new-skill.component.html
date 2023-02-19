@@ -1,0 +1,22 @@
+<section style="min-height: 100vh; background-size: cover; background-image: url(../../../assets/fondo.jpg);">
+    <div class="container">
+        <div class="row" >
+            <div class="login" >
+                <h1>Ingresar</h1>
+                <form methed="post"  (ngSubmit)="onCreate()" novalidate #f="ngForm">
+                    <div class="form-group">
+                        <label for="nombre">Nombre de la Skill</label>
+                        <input placeholder="Nombre" type="text" class="form-control" id="nombre" name="nombre" [(ngModel)]="nombre" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="porcentaje">Porcentaje</label>
+                        <input placeholder="Porcentaje" type="text" class="form-control" id="porcentaje" name="porcentaje" [(ngModel)]="porcentaje" required>
+                    </div>
+                    <button class="btn btn-primary btn-block btn-large">
+                        Agregar Skill
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

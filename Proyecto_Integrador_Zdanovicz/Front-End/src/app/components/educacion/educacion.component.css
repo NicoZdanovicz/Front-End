@@ -5,6 +5,10 @@
 div{
     background-color: #051424;
 }
-h1, h3, h5{
-    display: inline;
+h1{
+    color: aliceblue;
+    margin: 1rem;
+}
+td{
+    color: aliceblue;
 }

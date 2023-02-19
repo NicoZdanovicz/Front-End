@@ -1,0 +1,31 @@
+<section style="min-height: 100vh; background-size: cover; background-image: url(../../../assets/fondo.jpg);">
+    <div class="container" *ngIf="persona">
+        <div class="row" >
+            <div class="login" >
+                <h1>Ingresar</h1>
+                <form methed="post"  (ngSubmit)="onUpdate()" novalidate #f="ngForm">
+                    <div class="form-group">
+                        <label for="nombre">Nombre</label>
+                        <input placeholder="Nombre" type="text" class="form-control" id="nombre" name="nombre" [(ngModel)]="persona.nombre" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="apellido">Apellido</label>
+                        <input placeholder="Apellido" type="text" class="form-control" id="apellido" name="apellido" [(ngModel)]="persona.apellido" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="descripcion">Descripcion</label>
+                        <input placeholder="Descripcion" type="text" class="form-control" id="descripcion" name="descripcion" [(ngModel)]="persona.descripcion" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="img">Apellido</label>
+                        <input type="file" class="form-control" id="img" name="img" [(ngModel)]="persona.img" (change)="uploadImage($event)" accept=".jpg, .jpeg, .png">
+                    </div>
+
+                    <button class="btn btn-primary btn-block btn-large">
+                        Editar persona
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
