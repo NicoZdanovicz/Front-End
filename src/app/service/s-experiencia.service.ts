@@ -8,8 +8,8 @@ import { Experiencia } from '../model/experiencia';
   providedIn: 'root'
 })
 export class SExperienciaService {
+  //expURL = 'https://back-end-production-42fe.up.railway.app/explab/';
   expURL = 'http://localhost:8080/explab/';
-
   constructor(private httpClient: HttpClient) { }
 
   public lista(): Observable<Experiencia[]>{

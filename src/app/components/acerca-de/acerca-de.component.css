@@ -2,15 +2,16 @@
     padding: 20px;
     color:aliceblue
 }
+
 div{
     background-color: #051424;
     text-align: center;
 }
 /*Estilo de mi nombre*/
-/*#nombre{
+#nombre{
     font-weight: bold;
     margin-top: 20%;
-}*/
+}
 /*Estilo de la foto de perfil*/
 @media (min-width: 1300px){
     #perfil{
