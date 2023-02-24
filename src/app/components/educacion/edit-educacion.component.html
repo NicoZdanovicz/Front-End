@@ -1,8 +1,8 @@
-<section style="min-height: 100vh; background-size: cover; background-image: url(../../../assets/fondo.jpg);">
+<section style="min-height: 100vh; background-size: cover; background-image: url(../../../assets/fondo.jpg);" *ngIf="isLogged">
     <div class="container" *ngIf="educacion">
         <div class="row" >
             <div class="login" >
-                <h1>Ingresar</h1>
+                <h1>EDITAR</h1>
                 <form methed="post"  (ngSubmit)="onUpdate()" novalidate #f="ngForm">
                     <div class="form-group">
                         <label for="nombreE">Nombre de la Institucion</label>

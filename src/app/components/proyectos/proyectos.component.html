@@ -1,19 +1,39 @@
+
 <div class="row">
-    <h1 class="text-center">Proyecos Realizados</h1>
-    <div class="contenedor">
-        <div class="col-sm-12 col-md-6 col-lg-6 parte1">
-            <h1>1. Portfolio Web</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate iusto tempora temporibus tenetur aperiam est recusandae mollitia fugiat quidem quas blanditiis eaque, nesciunt facere reprehenderit sed maxime cum porro expedita!</p>
-        </div>
-        <div class="col-sm-12 col-md-3 col-lg-3 offset-md-1 offset-lg-1 parte1">
-            <img src="../../../assets/AP.jpeg" class="img-fluid img-proyecto">
-        </div>
-        <div class="col-sm-12 col-md-6 col-lg-6 parte2">
-            <h1>2. Proyecto-2</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, excepturi iure cupiditate dicta repellat, qui saepe optio dignissimos velit maxime consequatur architecto sapiente atque dolor natus, vel quos laboriosam culpa?</p>
-        </div>
-        <div class="col-sm-12 col-md-3 col-lg-3 offset-md-1 offset-lg-1 parte2">
-            <img src="../../../assets/AP.jpeg" class="img-fluid">
-        </div>
+    <h1 class="text-center"> Proyectos</h1>
+    <div class="col-lg-2">
+        <button (click)="openModal()" class="btn btn-dark" type="button" *ngIf="isLogged">Agregar <i class="bi bi-plus-circle-dotted"></i></button> 
     </div>
+    
+    <div class="col-lg-11" *ngIf="modalBoton == true">
+        <app-new-proyecto-modal></app-new-proyecto-modal>
+    </div>
+   
+    <div class="col-lg-11">
+        <table class="table ">
+            <tbody>
+                <tr *ngFor="let Proyectos of proyectos">
+                    <div class="row align-items-start">
+                        <div class="col"><h5>{{Proyectos.nombreP}}</h5></div>
+                        <div class="col">{{Proyectos.descripcionP}}</div>
+                        <div class="col">
+                            <td *ngIf="isLogged">
+                                <button class="btn btn-primary" routerLink="/editproy/{{Proyectos.id}}"><i class="bi bi-wrench-adjustable"></i> EDITAR</button>
+                            </td>
+                            <td style="color:transparent;">| |</td>
+                            <td *ngIf="isLogged">
+                                <button class="btn btn-danger" (click)="delete(Proyectos.id)"><i class="bi bi-trash3-fill"></i> BORRAR</button>
+                            </td>
+                        </div>
+                        <div class="col">
+                            <img src={{Proyectos.img}} style="width: 200px; height: 150px; margin: 10%;">
+                        </div>
+                        <hr>
+                    </div>
+                </tr>
+            </tbody>
+        </table>
+    
+    </div>
+    
 </div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Skill } from 'src/app/model/skill';
+import { ButtonService } from 'src/app/service/button.service';
 import { SkillService } from 'src/app/service/skill.service';
 import { TokenService } from 'src/app/service/token.service';
 
@@ -10,11 +11,12 @@ import { TokenService } from 'src/app/service/token.service';
 })
 export class HysComponent implements OnInit{
   skill: Skill[] = [];
-
-  constructor(private skillS: SkillService, private tokenService: TokenService){}
+  modalBoton: boolean;
+  constructor(private skillS: SkillService, private tokenService: TokenService, private modalSS: ButtonService){}
   isLogged = false;
 
   ngOnInit(): void{
+    this.modalSS.$modal.subscribe((valor) => {this.modalBoton = valor})
     this.cargarSkills();
     if(this.tokenService.getToken()){
       this.isLogged = true;
@@ -41,5 +43,8 @@ export class HysComponent implements OnInit{
         }
       )
     }
+  }
+  openModal(){
+    this.modalBoton = true;
   }
 }

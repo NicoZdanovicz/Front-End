@@ -1,24 +1,24 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Educacion } from 'src/app/model/educacion';
-import { EducacionService } from 'src/app/service/educacion.service';
+import { Proyectos } from 'src/app/model/proyectos';
+import { ProyectosService } from 'src/app/service/proyectos.service';
 import { TokenService } from 'src/app/service/token.service';
 
 @Component({
-  selector: 'app-edit-educacion',
-  templateUrl: './edit-educacion.component.html',
-  styleUrls: ['./edit-educacion.component.css']
+  selector: 'app-edit-proyectos',
+  templateUrl: './edit-proyectos.component.html',
+  styleUrls: ['./edit-proyectos.component.css']
 })
-export class EditEducacionComponent implements OnInit{
-  educacion: Educacion = null;
+export class EditProyectosComponent implements OnInit{
+  proyectos: Proyectos = null;
   isLogged = false;
-  constructor(private educacionS: EducacionService, private activatedRouter : ActivatedRoute, private router: Router,private tokenService: TokenService){}
+  constructor(private proyectoS: ProyectosService, private activatedRouter : ActivatedRoute, private router: Router, private tokenService: TokenService){}
   
   ngOnInit():void{
     const id = this.activatedRouter.snapshot.params['id'];
-    this.educacionS.detail(id).subscribe(
+    this.proyectoS.detail(id).subscribe(
       data =>{
-        this.educacion = data;
+        this.proyectos = data;
       }, err =>{
         alert("Error al modificar");
         this.router.navigate(['']);
@@ -35,10 +35,10 @@ export class EditEducacionComponent implements OnInit{
 
   onUpdate(): void{
     const id = this.activatedRouter.snapshot.params['id'];
-    this.educacionS.update(id, this.educacion).subscribe(data => {
+    this.proyectoS.update(id, this.proyectos).subscribe(data => {
       this.router.navigate(['']);
     }, err =>{
-      alert("Error al modificar la Educacion");
+      alert("Error al modificar el Proyecto");
       this.router.navigate(['']);
     })
   }

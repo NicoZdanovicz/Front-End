@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Skill } from 'src/app/model/skill';
 import { SkillService } from 'src/app/service/skill.service';
+import { TokenService } from 'src/app/service/token.service';
 
 @Component({
   selector: 'app-edit-skill',
@@ -10,8 +11,8 @@ import { SkillService } from 'src/app/service/skill.service';
 })
 export class EditSkillComponent implements OnInit{
   skill: Skill = null;
-
-  constructor(private skillS: SkillService, private activatedRouter: ActivatedRoute, private router: Router){}
+  isLogged = false;
+  constructor(private skillS: SkillService, private activatedRouter: ActivatedRoute, private router: Router, private tokenService: TokenService){}
 
   ngOnInit(): void{
     const id = this.activatedRouter.snapshot.params['id'];
@@ -23,6 +24,13 @@ export class EditSkillComponent implements OnInit{
         this.router.navigate(['']);
       }
     )
+    if(this.tokenService.getToken()){
+      this.isLogged = true;
+    } else{
+      this.isLogged = false;
+      alert("No tienes permitido ingresar");
+      this.router.navigate(['']);
+    }
   }
 
   onUpdate(){

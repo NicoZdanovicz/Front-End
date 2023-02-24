@@ -17,16 +17,19 @@ import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { interceptorProvider } from './service/interceptor-service';
-import { NewExperienciaComponent } from './components/experiencia/new-experiencia.component';
 import { EditExperienciaComponent } from './components/experiencia/edit-experiencia.component';
-import { NewEducacionComponent } from './components/educacion/new-educacion.component';
 import { EditEducacionComponent } from './components/educacion/edit-educacion.component';
 import { EditSkillComponent } from './components/hys/edit-skill.component';
-import { NewSkillComponent } from './components/hys/new-skill.component';
 import { EditAcercaDeComponent } from './components/acerca-de/edit-acerca-de.component';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideStorage,getStorage } from '@angular/fire/storage';
+import { NewProyectoModalComponent } from './components/new-proyecto-modal/new-proyecto-modal.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { EditProyectosComponent } from './components/proyectos/edit-proyectos.component';
+import { NewExpModalComponent } from './components/new-exp-modal/new-exp-modal.component';
+import { NewEduModalComponent } from './components/new-edu-modal/new-edu-modal.component';
+import { NewHysModalComponent } from './components/new-hys-modal/new-hys-modal.component';
 
 
 @NgModule({
@@ -43,13 +46,15 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
     FooterComponent,
     HomeComponent,
     LoginComponent,
-    NewExperienciaComponent,
     EditExperienciaComponent,
-    NewEducacionComponent,
     EditEducacionComponent,
     EditSkillComponent,
-    NewSkillComponent,
     EditAcercaDeComponent,
+    NewProyectoModalComponent,
+    EditProyectosComponent,
+    NewExpModalComponent,
+    NewEduModalComponent,
+    NewHysModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -58,7 +63,8 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
     FormsModule,
     HttpClientModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideStorage(() => getStorage())
+    provideStorage(() => getStorage()),
+    NgbModule
   ],
   providers: [
     interceptorProvider

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Educacion } from 'src/app/model/educacion';
+import { ButtonService } from 'src/app/service/button.service';
 import { EducacionService } from 'src/app/service/educacion.service';
 import { TokenService } from 'src/app/service/token.service';
 
@@ -10,11 +11,12 @@ import { TokenService } from 'src/app/service/token.service';
 })
 export class EducacionComponent implements OnInit{
   educacion: Educacion[] = [];
-
-  constructor(private educacionS: EducacionService, private tokenService: TokenService){}
+  modalBoton: boolean;
+  constructor(private educacionS: EducacionService, private tokenService: TokenService, private modalSS: ButtonService){}
   isLogged = false;
 
   ngOnInit(): void{
+    this.modalSS.$modal.subscribe((valor) => {this.modalBoton = valor})
     this.cargarEducacion();
     if(this.tokenService.getToken()){
       this.isLogged = true;
@@ -41,5 +43,8 @@ export class EducacionComponent implements OnInit{
         }
       )
     }
+  }
+  openModal(){
+    this.modalBoton = true;
   }
 }

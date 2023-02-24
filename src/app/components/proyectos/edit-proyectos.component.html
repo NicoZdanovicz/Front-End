@@ -1,0 +1,26 @@
+<section style="min-height: 100vh; background-size: cover; background-image: url(../../../assets/fondo.jpg);" *ngIf="isLogged">
+    <div class="container" *ngIf="proyectos">
+        <div class="row" >
+            <div class="login" >
+                <h1>EDITAR</h1>
+                <form methed="post"  (ngSubmit)="onUpdate()" novalidate #f="ngForm">
+                    <div class="form-group">
+                        <label for="nombreP">Nombre del Proyecto</label>
+                        <input placeholder="Nombre" type="text" class="form-control" id="nombreP" name="nombreP" [(ngModel)]="proyectos.nombreP" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="descripcionP">Descripcion del Proyecto</label>
+                        <input placeholder="Descripcion" type="text" class="form-control" id="descripcionP" name="descripcionP" [(ngModel)]="proyectos.descripcionP" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="img">URL de la Imagen</label>
+                        <input placeholder="URL" type="text" class="form-control" id="img" name="img" [(ngModel)]="proyectos.img" required>
+                    </div>
+                    <button class="btn btn-primary btn-block btn-large">
+                        Actualizar Proyecto
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

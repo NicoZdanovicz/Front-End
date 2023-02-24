@@ -1,13 +1,14 @@
 <div class="row">
     <h1>Experiencia Laboral</h1>
+
     <div class="col-lg-2">
-        <button type="button" class="btn btn-dark" routerLink="/nuevaexp" *ngIf="isLogged">
-            Agregar +
-        </button>
+        <button (click)="openModal()" class="btn btn-dark" type="button" *ngIf="isLogged">Agregar <i class="bi bi-plus-circle-dotted"></i></button> 
+    </div>
+    
+    <div class="col-lg-11" *ngIf="modalBoton == true">
+        <app-new-exp-modal></app-new-exp-modal>
     </div>
 
-
-    <div class="col lg 1"></div>
     <div class="col-lg-11">
         <table class="table">
             <tbody>
@@ -17,11 +18,11 @@
                         <div class="col">{{Experiencia.descripcionE}}</div>
                         <div class="col">
                             <td *ngIf="isLogged">
-                                <button class="btn btn-primary" routerLink="/editexp/{{Experiencia.id}}"><i class="bi bi-pencil-fill"></i>EDITAR</button>
+                                <button class="btn btn-primary" routerLink="/editexp/{{Experiencia.id}}"><i class="bi bi-wrench-adjustable"></i> EDITAR</button>
                             </td>
                             <td style="color:transparent;">| |</td>
                             <td *ngIf="isLogged">
-                                <button class="btn btn-danger" (click)="delete(Experiencia.id)"><i class="bi bi-trash3-fill"></i>BORRAR</button>
+                                <button class="btn btn-danger" (click)="delete(Experiencia.id)"><i class="bi bi-trash3-fill"></i> BORRAR</button>
                             </td>
                         
                         </div>

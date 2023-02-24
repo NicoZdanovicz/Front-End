@@ -1,0 +1,38 @@
+
+<br>
+<div class="col-lg-12">
+    <button class="btn btn-danger" (click)="closeModal()">X</button>
+</div>
+<br>
+<div class="modale">
+    <div class="modal_body ">
+            <div class="row align-items-start">
+                    <form methed="post"  (ngSubmit)="onCreate()" novalidate #f="ngForm">
+                        <td>
+                            <div class="form-group col">
+                                <input placeholder="Nombre de la Skill" type="text" class="form-control" id="nombre" name="nombre" [(ngModel)]="nombre" required>
+                            </div>
+                        </td>
+                        <td style="color: transparent;">---</td>
+                        <td>
+                            <div class="form-group col">
+                                <input placeholder="Porcentaje" type="text" class="form-control" id="porcentaje" name="porcentaje" [(ngModel)]="porcentaje" required>
+                            </div>
+                        </td>
+                        <td style="color: transparent;">---</td>
+                    <td>
+                        <div class="form-group col">
+                            <input placeholder="Ingrese URL de imagen" type="text" class="form-control" id="img" name="img" [(ngModel)]="img">
+                        </div>
+                    </td>
+                    <td style="color: transparent;">---</td>
+                        <td>
+                            <button class="btn btn-primary">
+                                Agregar
+                            </button>
+                        </td>
+                    </form>
+            </div>
+    </div>
+</div>
+<hr>

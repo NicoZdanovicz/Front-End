@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ButtonService } from 'src/app/service/button.service';
 import { TokenService } from 'src/app/service/token.service';
 @Component({
   selector: 'app-logo-ap',
@@ -8,10 +9,12 @@ import { TokenService } from 'src/app/service/token.service';
 })
 export class LogoAPComponent implements OnInit {
   isLogged = false;
-
-  constructor(private router:Router, private tokenService: TokenService) { }
+  modalBoton: boolean;
+  constructor(private router:Router, private tokenService: TokenService,private modalSS: ButtonService) { }
 
   ngOnInit(): void{
+    this.modalSS.$modal.subscribe((valor) => {this.modalBoton = valor})
+
     if(this.tokenService.getToken()){
       this.isLogged = true;
     }else{
@@ -24,7 +27,7 @@ export class LogoAPComponent implements OnInit {
     window.location.reload();
   }
 
-  login(){
-    this.router.navigate(['/login'])
+  openModal(){
+    this.modalBoton = true;
   }
 }
